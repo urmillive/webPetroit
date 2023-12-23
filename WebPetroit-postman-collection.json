@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "4f6efd10-6e18-42b7-b6b5-74afa943efca",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15292071"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/auth",
+							"host": ["{{HOST}}"],
+							"path": ["auth"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"demo@gmail.com\",\n    \"password\": \"Demo@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/auth/login",
+							"host": ["{{HOST}}"],
+							"path": ["auth", "login"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Demo\",\n    \"email\":\"demo@gmail.com\",\n    \"password\": \"Demo@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/auth/signup",
+							"host": ["{{HOST}}"],
+							"path": ["auth", "signup"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/students?limit=2&page=2",
+							"host": ["{{HOST}}"],
+							"path": ["students"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rollNo\": \"1\",\n    \"firstName\": \"Aman\",\n    \"lastName\": \"Tanna\",\n    \"address\": \"Ahmedabad\",\n    \"gender\": \"Male\",\n    \"subjects\":[\n        \"Java\",\n        \"C#\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/students",
+							"host": ["{{HOST}}"],
+							"path": ["students"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/students/:id",
+							"host": ["{{HOST}}"],
+							"path": ["students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rollNo\": \"2\",\n    \"firstName\": \"Aman\",\n    \"lastName\": \"Tanna\",\n    \"address\": \"Ahmedabad\",\n    \"gender\": \"Male\",\n    \"subjects\":[\n        \"Java\",\n        \"C#\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/students/:id",
+							"host": ["{{HOST}}"],
+							"path": ["students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65858a99f573aca100a7f1eb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update student profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "/home/urmil/Downloads/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/students/:id/profile",
+							"host": ["{{HOST}}"],
+							"path": ["students", ":id", "profile"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65858675fd01c61250e08081"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/students/:id",
+							"host": ["{{HOST}}"],
+							"path": ["students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65858a99f573aca100a7f1eb"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://192.168.1.37:3000",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODU5ODZmYjQ3MTVhN2Y5NGJjZWRkOSIsImlhdCI6MTcwMzI1NDIzOSwiZXhwIjoxNzAzMjU3ODM5fQ.AUHBxSJJwrjuWbFwdWjO0Q4zd-C3q85EyMp_Yq7yp4I",
+			"type": "string"
+		}
+	]
+}
